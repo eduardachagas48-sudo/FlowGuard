@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="FlowGuard: Adaptive Information Flow Control for Secure Multi-Agent AI." />
+  <title>FlowGuard | Secure Multi-Agent AI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="site-glow"></div>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="FlowGuard home">
+      <span class="brand-mark"></span>
+      <span>FlowGuard</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="#idea">Idea</a>
+      <a href="#method">Method</a>
+      <a href="#findings">Findings</a>
+      <a href="#figures">Figures</a>
+      <a href="#resources">Resources</a>
+      <a href="#citation">Citation</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section">
+      <div class="hero-copy">
+        <p class="eyebrow">Telemetry-driven AI safety for agentic systems</p>
+
+        <h1>
+          FlowGuard:
+          <span>Adaptive Information Flow Control</span>
+          for Secure Multi-Agent AI
+        </h1>
+
+        <p class="subtitle">
+          Runtime telemetry for detecting unsafe information flows before
+          multi-agent failures become final.
+        </p>
+
+        <p class="claim">
+          Safety in LLM-based multi-agent systems is not only about whether
+          systems fail, but whether their failures become observable before harm.
+        </p>
+
+        <div class="cta-row" aria-label="Project links">
+          <a class="button primary" href="#">Paper</a>
+          <a class="button" href="#">Code</a>
+          <a class="button" href="#">Dataset</a>
+          <a class="button" href="#citation">BibTeX</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="FlowGuard telemetry visual">
+        <div class="radar-card">
+          <div class="radar-topline">
+            <span>OBSERVABILITY PLANE</span>
+            <span class="status-dot">LIVE TRACE</span>
+          </div>
+
+          <div class="agent-network">
+            <span class="node node-user">Q</span>
+            <span class="node node-a">A1</span>
+            <span class="node node-b">A2</span>
+            <span class="node node-c">A3</span>
+            <span class="node node-d">T</span>
+            <svg class="network-lines" viewBox="0 0 520 340" role="img" aria-label="Information flow network">
+              <path d="M95 150 C150 80 245 90 285 130" />
+              <path d="M95 150 C155 220 240 230 310 195" />
+              <path d="M285 130 C350 100 405 125 435 170" />
+              <path d="M310 195 C370 230 420 210 435 170" />
+              <path class="danger" d="M285 130 C300 175 300 185 310 195" />
+            </svg>
+          </div>
+
+          <div class="telemetry-strip">
+            <div><strong>tokens</strong><span>↑</span></div>
+            <div><strong>latency</strong><span>Δ</span></div>
+            <div><strong>calls</strong><span>3</span></div>
+            <div><strong>risk</strong><span class="risk">0.91</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="idea" class="section split">
+      <div>
+        <p class="eyebrow">Core idea</p>
+        <h2>Failures leave traces.</h2>
+      </div>
+
+      <div class="text-panel">
+        <p>
+          LLM-based multi-agent systems are not merely prompt pipelines. They are
+          runtime communication systems where agents exchange messages, call
+          tools, consume tokens, accumulate latency, and propagate information.
+        </p>
+        <p>
+          FlowGuard studies whether unsafe behavior leaves measurable signals in
+          the execution trajectory before the final answer is produced.
+        </p>
+      </div>
+    </section>
+
+    <section class="question-card section">
+      <p class="eyebrow">Research question</p>
+      <h2>
+        Can runtime telemetry reveal unsafe information flows in LLM-based
+        multi-agent systems before the final answer is produced?
+      </h2>
+    </section>
+
+    <section id="method" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Method overview</p>
+        <h2>From agent traces to safety observability</h2>
+        <p>
+          FlowGuard converts multi-agent executions into prefix-level telemetry
+          traces and evaluates whether adversarial behavior becomes detectable
+          before completion.
+        </p>
+      </div>
+
+      <div class="pipeline" aria-label="FlowGuard pipeline">
+        <article class="pipeline-step">
+          <span>01</span>
+          <h3>Workflow execution</h3>
+          <p>Run LLM-based multi-agent workflows across benign and adversarial settings.</p>
+        </article>
+        <article class="pipeline-step">
+          <span>02</span>
+          <h3>Telemetry collection</h3>
+          <p>Measure tokens, latency, tool calls, interaction dynamics, and runtime cost.</p>
+        </article>
+        <article class="pipeline-step">
+          <span>03</span>
+          <h3>Prefix traces</h3>
+          <p>Construct 25%, 50%, 75%, and 100% execution prefixes.</p>
+        </article>
+        <article class="pipeline-step">
+          <span>04</span>
+          <h3>Risk detection</h3>
+          <p>Detect adversarial information flows before final output generation.</p>
+        </article>
+        <article class="pipeline-step">
+          <span>05</span>
+          <h3>Attack characterization</h3>
+          <p>Estimate whether telemetry signatures generalize across attack families.</p>
+        </article>
+        <article class="pipeline-step">
+          <span>06</span>
+          <h3>Robustness evaluation</h3>
+          <p>Test consistency across seeds, domains, and model families.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section setup-grid">
+      <div class="section-heading">
+        <p class="eyebrow">Experimental setup</p>
+        <h2>Stress-testing observability</h2>
+      </div>
+
+      <div class="setup-card">
+        <span class="metric">2</span>
+        <h3>Model families</h3>
+        <p>Llama and Qwen.</p>
+      </div>
+      <div class="setup-card">
+        <span class="metric">3</span>
+        <h3>Application domains</h3>
+        <p>Education, healthcare, and finance.</p>
+      </div>
+      <div class="setup-card">
+        <span class="metric">3</span>
+        <h3>Random seeds</h3>
+        <p>Repeated stochastic runs for robustness.</p>
+      </div>
+      <div class="setup-card">
+        <span class="metric">6</span>
+        <h3>Attack families</h3>
+        <p>DPI, IPI, Byzantine, Contradicting, Impersonation, and Colluding.</p>
+      </div>
+    </section>
+
+    <section id="findings" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Key findings</p>
+        <h2>Three robust surprises</h2>
+      </div>
+
+      <div class="finding-grid">
+        <article class="finding-card">
+          <p class="tag cyan">Finding 1</p>
+          <h3>Early traces are predictive</h3>
+          <p>Most attacks become visible within the first 25% of the agent trace.</p>
+          <div class="mini-chart line-chart" aria-label="Placeholder early detection curve"></div>
+        </article>
+        <article class="finding-card">
+          <p class="tag yellow">Finding 2</p>
+          <h3>Telemetry carries the signal</h3>
+          <p>Operational runtime features recover most of the adversarial detection power.</p>
+          <div class="mini-chart bars" aria-label="Placeholder telemetry feature ablation"></div>
+        </article>
+        <article class="finding-card">
+          <p class="tag purple">Finding 3</p>
+          <h3>Observability generalizes</h3>
+          <p>The telemetry signal persists across seeds, models, domains, and attack families.</p>
+          <div class="mini-chart heatmap" aria-label="Placeholder robustness heatmap"></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="figures" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Publication figures</p>
+        <h2>Evidence for telemetry-based safety observability</h2>
+      </div>
+
+      <div class="figure-list">
+        <figure class="figure-card">
+          <img src="assets/figure1-early-detection.svg" alt="Placeholder for early detection curve" />
+          <figcaption>
+            <strong>Figure 1 | Early detection curve.</strong>
+            Detection performance as a function of the observed fraction of the multi-agent trace. Replace this placeholder with the final publication figure.
+          </figcaption>
+        </figure>
+        <figure class="figure-card">
+          <img src="assets/figure2-robustness.svg" alt="Placeholder for robustness across models and domains" />
+          <figcaption>
+            <strong>Figure 2 | Robustness across models, domains, and attack families.</strong>
+            Telemetry-based observability remains predictive under variation in model family, application context, and adversarial mechanism.
+          </figcaption>
+        </figure>
+        <figure class="figure-card">
+          <img src="assets/figure3-telemetry.svg" alt="Placeholder for feature ablation" />
+          <figcaption>
+            <strong>Figure 3 | Runtime telemetry carries most of the signal.</strong>
+            Operational-only features recover much of the detection performance of the full feature set.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section split">
+      <div>
+        <p class="eyebrow">Why it matters</p>
+        <h2>Observability as a safety primitive</h2>
+      </div>
+
+      <div class="text-panel">
+        <p>
+          As LLM-based agents become components of larger workflows, safety must
+          move beyond final-output inspection. FlowGuard frames runtime telemetry
+          as a lightweight observability layer for identifying unsafe information
+          flows while the system is still running.
+        </p>
+        <p>
+          This perspective supports safer deployment of multi-agent systems in
+          sensitive domains, improves model protectability analysis, and opens a
+          path toward adaptive information-flow control.
+        </p>
+      </div>
+    </section>
+
+    <section id="resources" class="section resources">
+      <div class="section-heading">
+        <p class="eyebrow">Resources</p>
+        <h2>Project materials</h2>
+      </div>
+
+      <div class="resource-grid">
+        <a href="#">Paper</a>
+        <a href="#">Code</a>
+        <a href="#">Data</a>
+        <a href="#">Slides</a>
+        <a href="mailto:eduarda.chagas@dcc.ufmg.br">Contact</a>
+      </div>
+    </section>
+
+    <section id="citation" class="section citation">
+      <div class="section-heading">
+        <p class="eyebrow">Citation</p>
+        <h2>BibTeX</h2>
+      </div>
+
+      <pre><code>@article{chagas2026flowguard,
+  title={FlowGuard: Adaptive Information Flow Control for Secure Multi-Agent AI},
+  author={Chagas, Eduarda},
+  journal={Under review},
+  year={2026}
+}</code></pre>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p><strong>FlowGuard</strong> · Eduarda Chagas · DCC/UFMG · Built for GitHub Pages.</p>
+    <p class="muted">Replace links, figures, and affiliations before public release. © 2026. License placeholder.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
