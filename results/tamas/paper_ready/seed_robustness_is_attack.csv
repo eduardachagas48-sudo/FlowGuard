@@ -1,0 +1,7 @@
+heldout_seed,feature_group,model,target,train_n,test_n,n_features,features,balanced_accuracy,f1,roc_auc
+1,,logreg,is_attack,160,80,6,"['num_tool_calls', 'latency_total_s', 'tool_call_entropy', 'tool_call_complexity', 'total_tokens', 'response_tokens']",0.825,0.8648648648648649,0.9208333333333333
+2,,logreg,is_attack,160,80,6,"['num_tool_calls', 'latency_total_s', 'tool_call_entropy', 'tool_call_complexity', 'total_tokens', 'response_tokens']",0.9083333333333333,0.9401709401709402,0.9675
+3,,logreg,is_attack,160,80,6,"['num_tool_calls', 'latency_total_s', 'tool_call_entropy', 'tool_call_complexity', 'total_tokens', 'response_tokens']",0.8583333333333334,0.8828828828828829,0.9400000000000001
+1,,rf,is_attack,160,80,6,"['num_tool_calls', 'latency_total_s', 'tool_call_entropy', 'tool_call_complexity', 'total_tokens', 'response_tokens']",0.875,0.9421487603305785,0.9508333333333333
+2,,rf,is_attack,160,80,6,"['num_tool_calls', 'latency_total_s', 'tool_call_entropy', 'tool_call_complexity', 'total_tokens', 'response_tokens']",0.8583333333333334,0.943089430894309,0.9608333333333333
+3,,rf,is_attack,160,80,6,"['num_tool_calls', 'latency_total_s', 'tool_call_entropy', 'tool_call_complexity', 'total_tokens', 'response_tokens']",0.8916666666666666,0.9411764705882353,0.9783333333333334
